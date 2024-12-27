@@ -25,7 +25,7 @@ void	pa(t_stack **sa, t_stack **sb)
 
 void	pb(t_stack **sa, t_stack **sb)
 {
-	t_stack	*tmp;
+	t_stack *tmp;
 
 	tmp = *sa;
 	*sa = (*sa)->next;

@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 11:44:04 by iammar            #+#    #+#             */
-/*   Updated: 2024/12/26 14:53:40 by iammar           ###   ########.fr       */
+/*   Updated: 2024/12/27 21:49:10 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,30 @@
 typedef struct s_stack
 {
 	int				data;
-	int             index;
+	int				index;
 	struct s_stack	*next;
 }					t_stack;
 
-t_stack 			*ft_lst_new(int value);
-void 				append_node(t_stack **stack, int value);
-t_stack				 *parse_input(int argc, char **argv);
+t_stack				*ft_lst_new(int value);
+void				append_node(t_stack **stack, int value);
+t_stack				*parse_input(int argc, char **argv);
 void				sort_two(t_stack **sa);
 int					check_sorted(t_stack *sa);
 int					ft_atoi(const char *str);
 char				**ft_split(char const *s, char c);
 void				free_split(char **result, int count);
+int list_length(t_stack *stack);
 
-//moves
+// moves
 void				push_a(t_stack **sa, t_stack **sb);
 void				push_b(t_stack **sa, t_stack **sb);
-void 				ra(t_stack **a);
-void	pa(t_stack **sa, t_stack **sb);
-void	pb(t_stack **sa, t_stack **sb);
+void				ra(t_stack **a);
+void				pa(t_stack **sa, t_stack **sb);
+void				pb(t_stack **sa, t_stack **sb);
+
+//operations
+void	rotate(t_stack **sb);
+void radix_sort(t_stack **a, t_stack **b);
+void indexing(t_stack *stack);
 
 #endif
-

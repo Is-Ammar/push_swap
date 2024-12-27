@@ -12,18 +12,18 @@
 
 #include "../push_swap.h"
 
-void ra(t_stack **a)
+void	ra(t_stack **a)
 {
-    if (!*a || !(*a)->next)
-        return;
+	t_stack	*first;
+	t_stack	*last;
 
-    t_stack *first = *a;
-    t_stack *last = *a;
-
-    while (last->next)
-        last = last->next;
-
-    *a = first->next;
-    first->next = NULL;
-    last->next = first;
+	if (!*a || !(*a)->next)
+		return ;
+	first = *a;
+	last = *a;
+	while (last->next)
+		last = last->next;
+	*a = first->next;
+	first->next = NULL;
+	last->next = first;
 }
