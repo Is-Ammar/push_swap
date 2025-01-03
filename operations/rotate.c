@@ -1,30 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/27 14:31:47 by iammar            #+#    #+#             */
-/*   Updated: 2024/12/27 14:33:44 by iammar           ###   ########.fr       */
+/*   Created: 2024/12/26 14:47:59 by iammar            #+#    #+#             */
+/*   Updated: 2025/01/01 20:23:18 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rotate(t_stack **sb)
+void	ra(t_stack **a)
 {
 	t_stack	*first;
 	t_stack	*last;
 
-	first = *sb;
-	*sb = (*sb)->next;
-	first->next = NULL;
-	last = *sb;
-	while (last->next != NULL)
-	{
+	if (!*a || !(*a)->next)
+		return ;
+	first = *a;
+	last = *a;
+	while (last->next)
 		last = last->next;
-	}
+	*a = first->next;
+	first->next = NULL;
 	last->next = first;
-	write(1, "rb\n", 3);
+	write(1,"ra\n",3);
+}
+void rb(t_stack **b)
+{
+    t_stack *temp;
+    t_stack *last;
+
+    if (*b == NULL || (*b)->next == NULL)
+        return;
+
+    temp = *b;
+    *b = (*b)->next;
+    last = *b;
+
+    while (last->next)
+        last = last->next;
+
+    last->next = temp;
+    temp->next = NULL;
+	write(1,"rb\n",3);
 }

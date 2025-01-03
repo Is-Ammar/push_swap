@@ -6,15 +6,15 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 18:15:09 by iammar            #+#    #+#             */
-/*   Updated: 2024/12/26 13:57:27 by iammar           ###   ########.fr       */
+/*   Updated: 2024/12/30 13:38:52 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
-	long int	result;
+	long long	result;
 	int			sign;
 
 	result = 0;
@@ -32,5 +32,5 @@ int	ft_atoi(const char *str)
 	{
 		result = result * 10 + (*str++ - '0');
 	}
-	return ((int)sign * result);
+	return (sign * result);
 }

@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorted.c                                           :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 13:33:06 by iammar            #+#    #+#             */
-/*   Updated: 2024/12/30 15:58:11 by iammar           ###   ########.fr       */
+/*   Created: 2024/12/29 09:51:54 by iammar            #+#    #+#             */
+/*   Updated: 2024/12/29 09:52:32 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	sorted(t_stack *sa)
+void	ft_lstadd_front(t_stack **alst, t_stack *new)
 {
-	t_stack	*tmp;
-
-	tmp = sa;
-	while (tmp->next)
-	{
-		if (tmp->data > tmp->next->data)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
+	if (!new)
+		return ;
+	new->next = *alst;
+	*alst = new;
 }

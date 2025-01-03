@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorted.c                                           :+:      :+:    :+:   */
+/*   choose_algo.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 13:33:06 by iammar            #+#    #+#             */
-/*   Updated: 2024/12/30 15:58:11 by iammar           ###   ########.fr       */
+/*   Created: 2024/12/30 11:34:44 by iammar            #+#    #+#             */
+/*   Updated: 2025/01/03 12:02:35 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-int	sorted(t_stack *sa)
+void choose_algo(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp;
-
-	tmp = sa;
-	while (tmp->next)
-	{
-		if (tmp->data > tmp->next->data)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
+    int size;
+    size = list_length(*a);
+    int chunk_count = 5;
+    if(size == 2)
+    {
+        sort_two(a);
+    }
+    else if(size == 3)
+        sort_three(a);
+    else
+    sort_stack(a, b, size, chunk_count);
 }

@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 13:26:47 by iammar            #+#    #+#             */
-/*   Updated: 2024/12/27 21:49:16 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/03 12:00:19 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,25 @@ int	main(int argc, char **argv)
 {
 	t_stack *a = parse_input(argc, argv);
 	t_stack *b = NULL;
-	t_stack *temp = a;
+	t_stack *temp;
 
 	indexing(a);
-	radix_sort(&a, &b);
+	if(!sorted(a))
+	{
+	choose_algo(&a, &b);
+	}
+ 	temp = a;
 	while (a)
 	{
 		printf("%d\n", a->data);
 		a = a->next;
 	}
-
-	free_stack(temp); //????
+	printf("stack b ----------->:\n");
+	while (b)
+	{
+		printf("%d\n", b->data);
+		b = b->next;
+	}
+	free_stack(temp);
 	return (0);
 }

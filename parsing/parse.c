@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 13:27:37 by iammar            #+#    #+#             */
-/*   Updated: 2024/12/26 14:33:57 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/03 14:07:43 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ t_stack	*parse_input(int argc, char **argv)
 		value = ft_atoi(nums[i]);
 		if (value < INT_MIN || value > INT_MAX)
 		{
-			write(2, "Error: Invalid number\n", 23);
+			write(2, "Error\n", 6);
 			exit(1);
 		}
 		append_node(&stack, value);

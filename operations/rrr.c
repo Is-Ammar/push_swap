@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorted.c                                           :+:      :+:    :+:   */
+/*   rrr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 13:33:06 by iammar            #+#    #+#             */
-/*   Updated: 2024/12/30 15:58:11 by iammar           ###   ########.fr       */
+/*   Created: 2025/01/01 20:56:33 by iammar            #+#    #+#             */
+/*   Updated: 2025/01/01 20:58:05 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	sorted(t_stack *sa)
+void rrr(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp;
-
-	tmp = sa;
-	while (tmp->next)
-	{
-		if (tmp->data > tmp->next->data)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
+    rra(a);
+    rrb(b);
+    write(1, "rrr\n", 4);
 }
