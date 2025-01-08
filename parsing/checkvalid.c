@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
+/*   checkvalid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 09:50:09 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/02 09:41:42 by iammar           ###   ########.fr       */
+/*   Created: 2025/01/07 21:37:33 by iammar            #+#    #+#             */
+/*   Updated: 2025/01/08 16:46:35 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rra(t_stack **sa)
+void	valid(int *arr, int i, t_stack *a)
 {
-	t_stack	*tmp;
-	t_stack	*prev;
-
-	if (!*sa || !(*sa)->next)
-		return ;
-	tmp = *sa;
-	while (tmp->next)
+	if (is_duplicate(arr, i))
 	{
-		prev = tmp;
-		tmp = tmp->next;
+		free_stack(a);
+		free(arr);
+		write(1, "Error\n", 6);
+		exit(1);
 	}
-	prev->next = NULL;
-	tmp->next = *sa;
-	*sa = tmp;
-	write(1, "rra\n", 4);
+	if (sorted(a))
+	{
+		if (a)
+		{
+			free_stack(a);
+			free(arr);
+		}
+		exit(1);
+	}
 }

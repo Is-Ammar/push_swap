@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
+/*   rrr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 09:50:09 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/02 09:41:42 by iammar           ###   ########.fr       */
+/*   Created: 2025/01/01 20:56:33 by iammar            #+#    #+#             */
+/*   Updated: 2025/01/08 17:05:58 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
-void	rra(t_stack **sa)
+void	rrr_b(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp;
-	t_stack	*prev;
-
-	if (!*sa || !(*sa)->next)
-		return ;
-	tmp = *sa;
-	while (tmp->next)
-	{
-		prev = tmp;
-		tmp = tmp->next;
-	}
-	prev->next = NULL;
-	tmp->next = *sa;
-	*sa = tmp;
-	write(1, "rra\n", 4);
+	rra_b(a);
+	rrb_b(b);
 }

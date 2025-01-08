@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 09:50:09 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/02 09:41:42 by iammar           ###   ########.fr       */
+/*   Created: 2024/10/23 18:15:09 by iammar            #+#    #+#             */
+/*   Updated: 2025/01/08 17:22:43 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../srcsb/push_swap_bonus.h"
 
-void	rra(t_stack **sa)
+double	ft_atoi_b(const char *str)
 {
-	t_stack	*tmp;
-	t_stack	*prev;
+	double	result;
+	int		sign;
 
-	if (!*sa || !(*sa)->next)
-		return ;
-	tmp = *sa;
-	while (tmp->next)
+	result = 0;
+	sign = 1;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
 	{
-		prev = tmp;
-		tmp = tmp->next;
+		sign = -1;
+		str++;
 	}
-	prev->next = NULL;
-	tmp->next = *sa;
-	*sa = tmp;
-	write(1, "rra\n", 4);
+	else if (*str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + (*str++ - '0');
+	}
+	return (sign * result);
 }

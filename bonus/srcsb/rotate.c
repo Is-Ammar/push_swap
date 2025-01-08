@@ -6,13 +6,13 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 14:47:59 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/07 21:45:37 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/08 17:05:46 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
-void	ra(t_stack **a)
+void	ra_b(t_stack **a)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -26,10 +26,9 @@ void	ra(t_stack **a)
 	*a = first->next;
 	first->next = NULL;
 	last->next = first;
-	write(1, "ra\n", 3);
 }
 
-void	rb(t_stack **b)
+void	rb_b(t_stack **b)
 {
 	t_stack	*temp;
 	t_stack	*last;
@@ -43,5 +42,4 @@ void	rb(t_stack **b)
 		last = last->next;
 	last->next = temp;
 	temp->next = NULL;
-	write(1, "rb\n", 3);
 }

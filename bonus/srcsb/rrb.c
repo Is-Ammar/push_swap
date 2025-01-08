@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorted.c                                           :+:      :+:    :+:   */
+/*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 13:33:06 by iammar            #+#    #+#             */
-/*   Updated: 2024/12/30 15:58:11 by iammar           ###   ########.fr       */
+/*   Created: 2025/01/01 20:57:42 by iammar            #+#    #+#             */
+/*   Updated: 2025/01/08 17:05:53 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
-int	sorted(t_stack *sa)
+void	rrb_b(t_stack **sa)
 {
 	t_stack	*tmp;
 
-	tmp = sa;
-	while (tmp->next)
-	{
-		if (tmp->data > tmp->next->data)
-			return (0);
+	tmp = *sa;
+	while (tmp->next->next)
 		tmp = tmp->next;
-	}
-	return (1);
+	ft_lstadd_front_b(sa, tmp->next);
+	tmp->next = NULL;
 }

@@ -6,13 +6,13 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 18:17:13 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/07 10:20:03 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/08 17:24:37 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../srcsb/push_swap_bonus.h"
 
-int	count_words(const char *s, char c)
+int	count_words_b(const char *s, char c)
 {
 	int	count;
 	int	in_word;
@@ -35,7 +35,7 @@ int	count_words(const char *s, char c)
 	return (count);
 }
 
-char	*get_next_word(const char **s, char c)
+char	*get_next_word_b(const char **s, char c)
 {
 	const char	*start;
 	int			length;
@@ -61,7 +61,7 @@ char	*get_next_word(const char **s, char c)
 	return (word);
 }
 
-void	free_split(char **result)
+void	free_split_b(char **result)
 {
 	int	j;
 
@@ -74,7 +74,7 @@ void	free_split(char **result)
 	free(result);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split_b(char const *s, char c)
 {
 	char	**result;
 	int		word_count;
@@ -83,16 +83,16 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	if (!s)
 		return (NULL);
-	word_count = count_words(s, c);
+	word_count = count_words_b(s, c);
 	result = malloc((word_count + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
 	while (i < word_count)
 	{
-		result[i] = get_next_word(&s, c);
+		result[i] = get_next_word_b(&s, c);
 		if (!result[i])
 		{
-			free_split(result);
+			free_split_b(result);
 			return (NULL);
 		}
 		i++;

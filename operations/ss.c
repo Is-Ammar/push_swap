@@ -6,15 +6,15 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 20:52:17 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/01 20:55:05 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/07 21:44:33 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b)
 {
-    sa(a);
-    sb(b);
-    write(1, "ss\n", 3);
+	sa(a);
+	sb(b);
+	write(1, "ss\n", 3);
 }

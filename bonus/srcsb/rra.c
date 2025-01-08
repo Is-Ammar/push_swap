@@ -6,13 +6,13 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 09:50:09 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/02 09:41:42 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/08 17:05:49 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
-void	rra(t_stack **sa)
+void	rra_b(t_stack **sa)
 {
 	t_stack	*tmp;
 	t_stack	*prev;
@@ -28,5 +28,4 @@ void	rra(t_stack **sa)
 	prev->next = NULL;
 	tmp->next = *sa;
 	*sa = tmp;
-	write(1, "rra\n", 4);
 }

@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 09:50:09 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/02 09:41:42 by iammar           ###   ########.fr       */
+/*   Created: 2024/12/29 09:51:54 by iammar            #+#    #+#             */
+/*   Updated: 2025/01/08 17:22:50 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../srcsb/push_swap_bonus.h"
 
-void	rra(t_stack **sa)
+void	ft_lstadd_front_b(t_stack **alst, t_stack *new)
 {
-	t_stack	*tmp;
-	t_stack	*prev;
-
-	if (!*sa || !(*sa)->next)
+	if (!new)
 		return ;
-	tmp = *sa;
-	while (tmp->next)
-	{
-		prev = tmp;
-		tmp = tmp->next;
-	}
-	prev->next = NULL;
-	tmp->next = *sa;
-	*sa = tmp;
-	write(1, "rra\n", 4);
+	new->next = *alst;
+	*alst = new;
 }

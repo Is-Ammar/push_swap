@@ -6,22 +6,22 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:43:44 by iammar            #+#    #+#             */
-/*   Updated: 2024/12/30 19:57:53 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/07 21:44:23 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void sa(t_stack **sa)
+void	sa(t_stack **sa)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
-    if (*sa && (*sa)->next)
-    {
-        tmp = *sa;
-        *sa = (*sa)->next;
-        tmp->next = (*sa)->next;
-        (*sa)->next = tmp;
-    }
-    write(1, "sa\n", 3);
+	if (*sa && (*sa)->next)
+	{
+		tmp = *sa;
+		*sa = (*sa)->next;
+		tmp->next = (*sa)->next;
+		(*sa)->next = tmp;
+	}
+	write(1, "sa\n", 3);
 }

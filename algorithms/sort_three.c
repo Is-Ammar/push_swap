@@ -5,44 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/27 14:28:11 by iammar            #+#    #+#             */
-/*   Updated: 2024/12/30 22:13:41 by iammar           ###   ########.fr       */
+/*   Created: 2024/07/16 18:23:42 by hfazaz            #+#    #+#             */
+/*   Updated: 2025/01/06 15:05:45 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int max(t_stack *a) 
-{
-    int max_value = a->data;
-    int max_index = 0;
-    int current_index = 0;
-
-    t_stack *current = a->next;
-
-    while (current) 
-    {
-        current_index++;
-        if (current->data > max_value) 
-        {
-            max_value = current->data; 
-            max_index = current_index;
-        }
-        current = current->next;
-    }
-    return max_index;
-}
 void	sort_three(t_stack **a)
 {
-	int	i;
-
-	i = max(*a);
-	if (i == 0)
+	if ((*a)->data > (*a)->next->data && (*a)->data > (*a)->next->next->data)
 		ra(a);
-	if (i == 1)
+	else if ((*a)->next->data > (*a)->data
+		&& (*a)->next->data > (*a)->next->next->data)
 		rra(a);
 	if ((*a)->data > (*a)->next->data)
 		sa(a);
-	else
-		return ;
 }

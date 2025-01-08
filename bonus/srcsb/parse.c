@@ -6,13 +6,13 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 13:27:37 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/07 21:23:26 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/08 17:40:42 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap_bonus.h"
 
-t_stack	*ft_lst_new(int value)
+t_stack	*ft_lst_new_b(int value)
 {
 	t_stack	*node;
 
@@ -24,12 +24,12 @@ t_stack	*ft_lst_new(int value)
 	return (node);
 }
 
-void	append_node(t_stack **stack, int value)
+void	append_node_b(t_stack **stack, int value)
 {
 	t_stack	*new_list;
 	t_stack	*current;
 
-	new_list = ft_lst_new(value);
+	new_list = ft_lst_new_b(value);
 	if (!*stack)
 	{
 		*stack = new_list;
@@ -41,23 +41,23 @@ void	append_node(t_stack **stack, int value)
 	current->next = new_list;
 }
 
-void	error_exit(t_stack *stack, char **nums, int free_nums)
+void	error_exit_b(t_stack *stack, char **nums, int free_nums)
 {
 	if (stack)
-		free_stack(stack);
+		free_stack_b(stack);
 	if (nums && free_nums)
-		free_split(nums);
+		free_split_b(nums);
 	write(2, "Error\n", 6);
 	exit(1);
 }
 
-int	check_value(char *str, double *value)
+int	check_value_b(char *str, double *value)
 {
-	*value = ft_atoi(str);
+	*value = ft_atoi_b(str);
 	return (*value < INT_MIN || *value > INT_MAX);
 }
 
-t_stack	*parse_input(int argc, char **argv)
+t_stack	*parse_input_b(int argc, char **argv)
 {
 	t_stack	*stack;
 	char	**nums;
@@ -69,18 +69,18 @@ t_stack	*parse_input(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		nums = ft_split(argv[i], ' ');
+		nums = ft_split_b(argv[i], ' ');
 		if (!nums)
-			error_exit(stack, NULL, 0);
+			error_exit_b(stack, NULL, 0);
 		j = 0;
 		while (nums[j])
 		{
-			if (!is_digit_string(nums[j]) || check_value(nums[j], &value))
-				error_exit(stack, nums, 1);
-			append_node(&stack, value);
+			if (!is_digit_string_b(nums[j]) || check_value_b(nums[j], &value))
+				error_exit_b(stack, nums, 1);
+			append_node_b(&stack, value);
 			j++;
 		}
-		free_split(nums);
+		free_split_b(nums);
 		i++;
 	}
 	return (stack);
