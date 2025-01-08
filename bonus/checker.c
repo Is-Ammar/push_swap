@@ -6,23 +6,11 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 21:56:53 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/08 17:30:36 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/08 18:02:10 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./srcsb/push_swap_bonus.h"
-
-void	free_stack_b(t_stack *stack)
-{
-	t_stack	*temp;
-
-	while (stack)
-	{
-		temp = stack;
-		stack = stack->next;
-		free(temp);
-	}
-}
 
 int	is_digit_string_b(const char *str)
 {
@@ -72,6 +60,15 @@ int	sorted_b(t_stack *a)
 	return (1);
 }
 
+int	ft_freee(t_stack **a, t_stack **b, char *line)
+{
+	free_stack_b(*a);
+	free_stack_b(*b);
+	free(line);
+	write(2, "Error\n", 6);
+	return (1);
+}
+
 int	compare(char *line, t_stack **a, t_stack **b)
 {
 	if (!ft_strcmp_b(line, "sa"))
@@ -97,15 +94,8 @@ int	compare(char *line, t_stack **a, t_stack **b)
 	else if (!ft_strcmp_b(line, "pb"))
 		pb_b(a, b);
 	else
-	{
-		free_stack_b(*a);
-		free_stack_b(*b);
-		free(line);
-		write(2, "Error\n", 6);
-		return (1);
-	}
-	free(line);
-	return (0);
+		return (ft_freee(a, b, line));
+	return (free(line), 0);
 }
 
 int	main(int argc, char **argv)
@@ -125,17 +115,13 @@ int	main(int argc, char **argv)
 			break ;
 		}
 		if (compare(line, &a, &b) == 1)
-		{
 			exit(1);
-		}
 	}
 	if (sorted_b(a))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
 	if (b)
-	{
 		free_stack_b(b);
-	}
 	free_stack_b(a);
 }

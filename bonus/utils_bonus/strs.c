@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:57:33 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/08 17:25:03 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/08 18:02:30 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,16 @@ char	**ft_join_args_b(char **argv)
 	res = ft_split_b(str, ' ');
 	free(str);
 	return (res);
+}
+
+void	free_stack_b(t_stack *stack)
+{
+	t_stack	*temp;
+
+	while (stack)
+	{
+		temp = stack;
+		stack = stack->next;
+		free(temp);
+	}
 }
