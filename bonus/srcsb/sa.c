@@ -6,21 +6,23 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:43:44 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/08 17:06:00 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/10 13:38:46 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	sa_b(t_stack **sa)
+void	sa_b(t_stack **a)
 {
 	t_stack	*tmp;
 
-	if (*sa && (*sa)->next)
+	if (!a || !(*a))
+		return ;
+	if (*a && (*a)->next)
 	{
-		tmp = *sa;
-		*sa = (*sa)->next;
-		tmp->next = (*sa)->next;
-		(*sa)->next = tmp;
+		tmp = *a;
+		*a = (*a)->next;
+		tmp->next = (*a)->next;
+		(*a)->next = tmp;
 	}
 }

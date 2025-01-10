@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 21:56:53 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/08 18:02:10 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/10 17:33:56 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	compare(char *line, t_stack **a, t_stack **b)
 	else if (!ft_strcmp_b(line, "rrr"))
 		rrr_b(a, b);
 	else if (!ft_strcmp_b(line, "pa"))
-		pa_b(b, a);
+		pa_b(a, b);
 	else if (!ft_strcmp_b(line, "pb"))
 		pb_b(a, b);
 	else
@@ -103,9 +103,11 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 	char	*line;
+	int		size;
 
 	b = NULL;
 	a = parse_input_b(argc, argv);
+	size = list_length(a);
 	while (1337)
 	{
 		line = get_next_line(0);
@@ -117,7 +119,7 @@ int	main(int argc, char **argv)
 		if (compare(line, &a, &b) == 1)
 			exit(1);
 	}
-	if (sorted_b(a))
+	if ((size == list_length(a)) && sorted_b(a))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);

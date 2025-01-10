@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = push_swap
 NAME_B = checker
@@ -16,7 +16,7 @@ SRCS = parsing/parse.c \
 	operations/rrb.c algorithms/sort_five.c  \
 	utils/strs.c sorted.c parsing/checkvalid.c operations/ss.c
 
-SRCSB = bonus/checker.c bonus/checker_utils.c bonus/srcsb/ss.c \
+SRCSB = bonus/checker.c bonus/sorted.c bonus/checker_utils.c bonus/srcsb/ss.c \
 		bonus/srcsb/sb.c bonus/srcsb/sa.c bonus/srcsb/rrr.c bonus/srcsb/rrb.c bonus/srcsb/rotate.c bonus/srcsb/rotate_ab.c \
 		bonus/srcsb/push.c bonus/srcsb/parse.c bonus/utils_bonus/ft_atoi.c bonus/utils_bonus/ft_lstadd_front.c  bonus/utils_bonus/ft_split.c bonus/utils_bonus/strs.c bonus/srcsb/rra.c
 
@@ -28,7 +28,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
-bonus: $(NAME_B)
+bonus: $(NAME) $(NAME_B)
 
 $(NAME_B): $(OBJB)
 	$(CC) $(CFLAGS) -o $(NAME_B) $(OBJB)

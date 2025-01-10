@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 19:48:23 by hfazaz            #+#    #+#             */
-/*   Updated: 2025/01/07 21:48:49 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/09 13:50:51 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,20 @@ int	get_min(t_stack *stack)
 	return (min);
 }
 
-void	sort_five(t_stack **sa, t_stack **sb)
+void	sort_five(t_stack **a, t_stack **b)
 {
-	while (list_length(*sa) > 3)
+	while (list_length(*a) > 3)
 	{
-		if ((*sa)->data == get_min(*sa) || (*sa)->data == get_max(*sa))
-			pb(sa, sb);
+		if ((*a)->data == get_min(*a) || (*a)->data == get_max(*a))
+			pb(a, b);
 		else
-			ra(sa);
+			ra(a);
 	}
-	sort_three(sa);
-	while (*sb)
+	sort_three(a);
+	while (*b)
 	{
-		pa(sa, sb);
-		if ((*sa)->data == get_max(*sa))
-			ra(sa);
+		pa(a, b);
+		if ((*a)->data == get_max(*a))
+			ra(a);
 	}
 }

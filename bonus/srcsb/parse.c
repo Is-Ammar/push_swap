@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 13:27:37 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/08 17:40:42 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/10 15:21:52 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,7 @@ t_stack	*parse_input_b(int argc, char **argv)
 		free_split_b(nums);
 		i++;
 	}
+	if (is_duplicate_b(stack))
+		error_exit_b(stack, NULL, 0);
 	return (stack);
 }

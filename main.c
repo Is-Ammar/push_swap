@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 13:26:47 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/08 17:43:29 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/10 11:09:22 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,60 +80,22 @@ int	is_digit_string(const char *str)
 	return (1);
 }
 
-void	indexing(t_stack *a, int *arr, int len)
-{
-	t_stack	*current;
-	int		i;
-
-	current = a;
-	while (current)
-	{
-		i = 0;
-		while (i < len)
-		{
-			if (current->data == arr[i])
-			{
-				current->index = i;
-				break ;
-			}
-			i++;
-		}
-		current = current->next;
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
 	int		*arr;
 	int		i;
-	char	**av;
 
 	b = NULL;
 	i = 1;
-	av = NULL;
 	a = parse_input(argc, argv);
 	arr = fill_arr(a);
 	i = list_length(a);
 	valid(arr, i, a);
-	av = ft_join_args(argv);
-	arr = sort_tab(arr, i);
-	indexing(a, arr, i);
-	choose_algo(&a, &b, av);
+	arr = sort_arr(arr, i);
+	choose_algo(&a, &b, arr);
 	free_stack(a);
 	free(arr);
-	free_split(av);
 	return (0);
 }
-// while (a)
-// {
-// 	printf("%d\n", a->data);
-// 	a = a->next;
-// }
-// printf("stack b ----------->:\n");
-// while (b)
-// {
-// 	printf("%d\n", b->data);
-// 	b = b->next;
-// }

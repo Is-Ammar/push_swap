@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 13:23:09 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/08 17:53:59 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/10 15:12:27 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ char				**ft_join_args_b(char **argv);
 char				*ft_strdup_b(const char *s1);
 char				*ft_strjoin_b(char *s1, char *s2);
 int					ft_strlen_b(char *str);
-int					is_duplicate_b(int *arr, int len);
+int					is_duplicate_b(t_stack *a);
 int					sorted_b(t_stack *a);
 void				valid_b(int *arr, int i, t_stack *a);
 void				free_stack_b(t_stack *stack);
 int					is_digit_string_b(const char *str);
+int					list_length(t_stack *stack);
 
 void				ra_b(t_stack **a);
 void				pa_b(t_stack **sa, t_stack **sb);

@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 01:44:12 by hfazaz            #+#    #+#             */
-/*   Updated: 2025/01/07 21:48:34 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/10 10:27:05 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	list_length(t_stack *stack)
 	return (length);
 }
 
-int	*sort_tab(int *tab, int len)
+int	*sort_arr(int *tab, int len)
 {
 	int	i;
 	int	j;

@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 22:02:53 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/08 17:06:22 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/10 14:31:40 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,19 @@ int	ft_strcmp_b(char *s1, char *s2)
 	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
 		i++;
 	return (s1[i] - s2[i]);
+}
+
+int	list_length(t_stack *stack)
+{
+	int		length;
+	t_stack	*current;
+
+	length = 0;
+	current = stack;
+	while (current)
+	{
+		length++;
+		current = current->next;
+	}
+	return (length);
 }

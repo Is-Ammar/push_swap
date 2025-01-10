@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 11:44:04 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/08 13:19:06 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/10 12:47:34 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 typedef struct s_stack
 {
 	int				data;
-	int				index;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -38,7 +37,6 @@ char				**ft_split(char const *s, char c);
 void				free_split(char **result);
 int					list_length(t_stack *stack);
 void				ft_lstadd_front(t_stack **alst, t_stack *new);
-char				**ft_join_args(char **argv);
 char				*ft_strdup(const char *s1);
 char				*ft_strjoin(char *s1, char *s2);
 int					ft_strlen(char *str);
@@ -61,20 +59,19 @@ void				rr(t_stack **sa, t_stack **sb);
 void				ss(t_stack **a, t_stack **b);
 
 // operation
-void				choose_algo(t_stack **a, t_stack **b, char **argv);
+void				choose_algo(t_stack **a, t_stack **b, int *arr);
 void				sort_three(t_stack **a);
-void				sort(t_stack **sa, t_stack **sb, int len);
+void				sort_and_slide(t_stack **sa, t_stack **sb, int len,
+						int *arr);
 int					find_max_index(t_stack *sb, int max_val);
 void				slide(int *start, int *end, int tab_size);
 int					get_max(t_stack *stack);
-int					*sort_tab(int *tab, int len);
+int					*sort_arr(int *tab, int len);
 int					is_duplicate(int *arr, int len);
 int					is_digit_string(const char *str);
 void				free_stack(t_stack *stack);
 void				sort_four(t_stack **sa, t_stack **sb);
 void				sort_five(t_stack **sa, t_stack **sb);
 int					get_min(t_stack *stack);
-//  bonus
-char				*get_next_line(int fd);
-int					ft_strcmp(char *s1, char *s2);
+
 #endif

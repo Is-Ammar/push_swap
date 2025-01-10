@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 11:34:44 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/07 21:30:21 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/10 11:03:21 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,11 @@ void	sort_two(t_stack **a)
 		ra(a);
 }
 
-void	choose_algo(t_stack **a, t_stack **b, char **av)
+void	choose_algo(t_stack **a, t_stack **b, int *arr)
 {
 	int	size;
-	int	len;
 
 	size = list_length(*a);
-	len = 0;
-	while (av[len])
-		len++;
 	if (size == 2)
 		sort_two(a);
 	else if (size == 3)
@@ -36,5 +32,5 @@ void	choose_algo(t_stack **a, t_stack **b, char **av)
 	else if (size == 5)
 		sort_five(a, b);
 	else
-		sort(a, b, len);
+		sort_and_slide(a, b, size, arr);
 }

@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 15:58:18 by hfazaz            #+#    #+#             */
-/*   Updated: 2025/01/07 21:48:22 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/10 11:08:58 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	set_end_values(int len, int *end)
 		*end = 35;
 }
 
-void	sort_a(t_stack **a, t_stack **b, int len)
+void	pre_sort(t_stack **a, t_stack **b, int len, int *arr)
 {
 	int	start;
 	int	end;
@@ -29,12 +29,12 @@ void	sort_a(t_stack **a, t_stack **b, int len)
 	set_end_values(len, &end);
 	while (*a != NULL)
 	{
-		if ((*a)->index >= start && (*a)->index <= end)
+		if ((*a)->data >= arr[start] && (*a)->data <= arr[end])
 		{
 			pb(a, b);
 			slide(&start, &end, len);
 		}
-		else if ((*a)->index < start)
+		else if ((*a)->data < arr[start])
 		{
 			pb(a, b);
 			rb(b);
@@ -59,7 +59,7 @@ void	rotate_to_max(t_stack **b, int max_val, int max_index, int middle)
 	}
 }
 
-void	sort_b(t_stack **a, t_stack **b)
+void	sort_back(t_stack **a, t_stack **b)
 {
 	int	max_val;
 	int	middle;
@@ -75,8 +75,8 @@ void	sort_b(t_stack **a, t_stack **b)
 	}
 }
 
-void	sort(t_stack **a, t_stack **b, int len)
+void	sort_and_slide(t_stack **a, t_stack **b, int len, int *arr)
 {
-	sort_a(a, b, len);
-	sort_b(a, b);
+	pre_sort(a, b, len, arr);
+	sort_back(a, b);
 }
