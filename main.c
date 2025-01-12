@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 13:26:47 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/10 11:09:22 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/12 13:07:18 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	free_stack(t_stack *stack)
 	}
 }
 
-int	*fill_arr(t_stack *a)
+int	*put_array(t_stack *a)
 {
 	int	*arr;
 	int	i;
@@ -52,34 +52,23 @@ int	*fill_arr(t_stack *a)
 	return (arr);
 }
 
-int	is_digit_string(const char *str)
+int is_digit_string(const char *str) 
 {
-	if (!str)
-	{
-		return (0);
-	}
-	if (*str == '-')
-	{
-		str++;
-	}
-	while (*str)
-	{
-		if (*str == ' ' || *str == '\t')
-		{
-			str++;
-		}
-		else if (*str < '0' || *str > '9')
-		{
-			return (0);
-		}
-		else
-		{
-			str++;
-		}
-	}
-	return (1);
-}
+    if (!str || !*str) return 0;
 
+    while (*str == ' ' || *str == '\t') str++;
+
+    if (*str == '-' || *str == '+') str++;
+
+    if (!*str) return 0;
+
+    while (*str)
+	{
+        if (*str < '0' || *str > '9') return 0;
+        str++;
+    }
+    return 1;
+}
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -90,7 +79,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	i = 1;
 	a = parse_input(argc, argv);
-	arr = fill_arr(a);
+	arr = put_array(a);
 	i = list_length(a);
 	valid(arr, i, a);
 	arr = sort_arr(arr, i);

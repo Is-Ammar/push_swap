@@ -34,20 +34,18 @@ int	sorted(t_stack *a)
 
 int	is_duplicate_b(t_stack *a)
 {
-    t_stack *tmp;
-    
-    
+	t_stack	*tmp;
+
 	while (a)
 	{
 		tmp = a->next;
-        while(tmp)
-        {
+		while (tmp)
+		{
 			if (a->data == tmp->data)
 				return (1);
-            tmp = tmp->next;
-        }
-        a = a->next;
-
+			tmp = tmp->next;
+		}
+		a = a->next;
 	}
 	return (0);
 }

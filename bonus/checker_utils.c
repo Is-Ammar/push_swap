@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 22:02:53 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/10 14:31:40 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/10 20:23:57 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,12 @@ int	list_length(t_stack *stack)
 		current = current->next;
 	}
 	return (length);
+}
+
+void	ok_ko(t_stack *a, int size)
+{
+	if ((size == list_length(a)) && sorted_b(a))
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 }

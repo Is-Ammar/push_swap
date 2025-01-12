@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 13:23:09 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/10 15:12:27 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/10 20:25:05 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void				rr_b(t_stack **sa, t_stack **sb);
 
 char				*get_next_line(int fd);
 int					ft_strcmp_b(char *s1, char *s2);
+void				ok_ko(t_stack *a, int size);
 
 #endif

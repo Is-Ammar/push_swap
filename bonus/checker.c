@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 21:56:53 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/10 17:33:56 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/12 12:54:03 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,14 @@ int	is_digit_string_b(const char *str)
 	{
 		return (0);
 	}
-	if (*str == '-')
-	{
-		str++;
-	}
+	if (*str == '-' || *str == '+')
+    {
+        str++;
+        if (*str < '0' || *str > '9')
+        {
+            return 0;
+        }
+    }
 	while (*str)
 	{
 		if (*str == ' ' || *str == '\t')
@@ -113,16 +117,12 @@ int	main(int argc, char **argv)
 		line = get_next_line(0);
 		if (!line || !*line)
 		{
-			free(line);
-			break ;
+			break;
 		}
 		if (compare(line, &a, &b) == 1)
 			exit(1);
 	}
-	if ((size == list_length(a)) && sorted_b(a))
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
+	ok_ko(a, size);
 	if (b)
 		free_stack_b(b);
 	free_stack_b(a);

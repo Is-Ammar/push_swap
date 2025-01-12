@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 13:27:37 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/10 15:21:52 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/11 10:08:18 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,22 +66,20 @@ t_stack	*parse_input_b(int argc, char **argv)
 	double	value;
 
 	stack = NULL;
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (++i < argc)
 	{
 		nums = ft_split_b(argv[i], ' ');
 		if (!nums)
 			error_exit_b(stack, NULL, 0);
-		j = 0;
-		while (nums[j])
+		j = -1;
+		while (nums[++j])
 		{
 			if (!is_digit_string_b(nums[j]) || check_value_b(nums[j], &value))
 				error_exit_b(stack, nums, 1);
 			append_node_b(&stack, value);
-			j++;
 		}
 		free_split_b(nums);
-		i++;
 	}
 	if (is_duplicate_b(stack))
 		error_exit_b(stack, NULL, 0);
