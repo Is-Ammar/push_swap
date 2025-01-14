@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 13:26:47 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/12 13:07:18 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/14 20:05:19 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,38 @@ int	*put_array(t_stack *a)
 	return (arr);
 }
 
-int is_digit_string(const char *str) 
+int	is_digit_string(const char *str)
 {
-    if (!str || !*str) return 0;
-
-    while (*str == ' ' || *str == '\t') str++;
-
-    if (*str == '-' || *str == '+') str++;
-
-    if (!*str) return 0;
-
-    while (*str)
+	if (!str || !(*str))
 	{
-        if (*str < '0' || *str > '9') return 0;
+		return (0);
+	}
+	if (*str == '-' || *str == '+')
+    {
         str++;
+        if (*str < '0' || *str > '9')
+        {
+            return 0;
+        }
     }
-    return 1;
+	while (*str)
+	{
+		if (*str == ' ' || *str == '\t')
+		{
+			str++;
+		}
+		else if (*str < '0' || *str > '9')
+		{
+			return (0);
+		}
+		else
+		{
+			str++;
+		}
+	}
+	return (1);
 }
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;

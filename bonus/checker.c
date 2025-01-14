@@ -6,7 +6,7 @@
 /*   By: iammar <iammar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 21:56:53 by iammar            #+#    #+#             */
-/*   Updated: 2025/01/12 12:54:03 by iammar           ###   ########.fr       */
+/*   Updated: 2025/01/14 20:05:40 by iammar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_digit_string_b(const char *str)
 {
-	if (!str)
+	if (!str || !(*str))
 	{
 		return (0);
 	}
